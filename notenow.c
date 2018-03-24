@@ -1,21 +1,18 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
-//Widget for open-dialog
 typedef struct _OpenDialog{
   GtkWidget *window;
   GtkTextBuffer *buffer;
   gchar *filename;
 } OpenDialog;
 
-//Widget for new dialog
 typedef struct _NewDialog{
   GtkWidget *window;
   GtkWidget *text_view;
   GtkTextBuffer *buffer;
 } NewDialog;
 
-//Function invoked when save menu item is clicked
 void save_dialog_selected(GtkWidget *widget, OpenDialog *sdlog){
   GtkWidget *dialog;
   gint response;
@@ -23,7 +20,6 @@ void save_dialog_selected(GtkWidget *widget, OpenDialog *sdlog){
 
   if (strcmp( gtk_window_get_title(GTK_WINDOW(sdlog->window)) , "Untitled") == 0)
   {
-
     dialog = gtk_file_chooser_dialog_new("Save File", GTK_WINDOW(sdlog->window),
      GTK_FILE_CHOOSER_ACTION_SAVE,
      GTK_STOCK_SAVE, GTK_RESPONSE_APPLY,
@@ -63,14 +59,12 @@ void save_dialog_selected(GtkWidget *widget, OpenDialog *sdlog){
  }
 }
 
-//Function invoked when new menu item is clicked
 void new_dialog_selected(GtkWidget *widget, NewDialog *ndlog){
  gtk_widget_show(ndlog->text_view);
  gtk_window_set_title(GTK_WINDOW(ndlog->window), "Untitled");
  gtk_text_buffer_set_text(ndlog->buffer, "", -1);
 }
 
-//Function invoked when open menu item is clicked
 void open_dialog_selected(GtkWidget *widget, OpenDialog *odlog){
 
   GtkWidget *dialog;
@@ -96,21 +90,18 @@ void open_dialog_selected(GtkWidget *widget, OpenDialog *odlog){
  gtk_widget_destroy(dialog);
 }
 
-//Function invoked when copy option is used
 void copy_to_clipboard(GtkWidget *widget, GtkTextBuffer *buffer){
   GtkClipboard *clipboard;
   clipboard = gtk_clipboard_get(GDK_NONE);
   gtk_text_buffer_copy_clipboard(buffer, clipboard);
 }
 
-//Function invoked when cut option is used
 void cut_to_clipboard(GtkWidget *widget, GtkTextBuffer *buffer){
   GtkClipboard *clipboard;
   clipboard = gtk_clipboard_get(GDK_NONE);
   gtk_text_buffer_cut_clipboard(buffer, clipboard,TRUE);
 }
 
-//Function invoked when paste option is used
 void paste_from_clipboard(GtkWidget *widget, GtkTextBuffer *buffer){
   GtkClipboard *clipboard;
   clipboard = gtk_clipboard_get(GDK_NONE);
