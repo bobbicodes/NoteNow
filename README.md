@@ -13,3 +13,8 @@ Literally all it has is file menu shit and clipboard operations. NOTENOW!
     
 # Run
     ./notenow
+
+# Install
+    $ sudo mv notenow /usr/bin/notenow
+    $ sudo mv notenow.desktop /usr/share/applications/notenow.desktop
+    $ sudo mv notenow.png /usr/share/icons/hicolor/48x48/apps/notenow.png 
