@@ -1,0 +1,16 @@
+[Desktop Entry]
+Hidden=false
+Exec=notenow
+Icon=notenow
+Type=Application
+NoDisplay=false
+Version=1.0
+StartupNotify=true
+Comment=Simple text editor
+Keywords=editor;
+DBusActivatable=false
+Terminal=false
+Name=NoteNow!
+Icon[en_US]=notenow
+Name[en_US]=NoteNow!
+Comment[en_US]=Simple text editor
