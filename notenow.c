@@ -110,14 +110,9 @@ void paste_from_clipboard(GtkWidget *widget, GtkTextBuffer *buffer){
 
 int main(int argc, char *argv[]) {
 
-  //Definitions
-
-  //Contains definitions for layout related items
   GtkWidget *window;
   GtkWidget *vbox;
   GtkWidget *hbox;
-
-  //Contains Menubar, Menu and menuitems inside it in an iterative way
   GtkWidget *menubar; 
   GtkWidget *fileMenu;
   GtkWidget *editMenu;
@@ -136,7 +131,6 @@ int main(int argc, char *argv[]) {
   GtkTextBuffer *buffer;
   GtkWidget* scrolledwindow;
 
-  //Miscellaneous declaration
   // GtkClipboard *clipboard;
   GtkAccelGroup *accel_group = NULL;
 
@@ -161,8 +155,6 @@ int main(int argc, char *argv[]) {
 
   //initialize menu bar
   menubar = gtk_menu_bar_new();
-
-  // Setting File Menu //
 
   //initialize file menu and define file items in it
   fileMenu = gtk_menu_new();
@@ -191,9 +183,6 @@ int main(int argc, char *argv[]) {
 
   //attaching FileMenu to menubar
   gtk_menu_shell_append(GTK_MENU_SHELL(menubar), fileMi); 
-
-  
-  //Setting Edit Menu //
 
   //initialize edit menu and define file items in it
   editMenu = gtk_menu_new();
@@ -244,7 +233,6 @@ int main(int argc, char *argv[]) {
   ndlog.buffer = buffer;
   ndlog.text_view = text_view;
 
-
   //initializing save dialog
   OpenDialog sdlog;
   sdlog.window=window;
@@ -276,11 +264,7 @@ int main(int argc, char *argv[]) {
   g_signal_connect(G_OBJECT(saveMi),"activate",
     G_CALLBACK(save_dialog_selected), &sdlog);
 
-  // display all the windows and enter into event loop
   gtk_widget_show_all(window);
-
-  //hide the text_viewer in the beginning
-  gtk_widget_hide(text_view);
 
   gtk_main();
 
