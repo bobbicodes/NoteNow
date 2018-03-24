@@ -2,7 +2,7 @@
     sudo apt-get install build-essential libgtk2.0-dev
 
 # Compile
-    gcc -o text text.c `pkg-config --libs --cflags gtk+-2.0`
+    gcc -o notenow notenow.c `pkg-config --libs --cflags gtk+-2.0`
     
 # Run
-    ./text
+    ./notenow
