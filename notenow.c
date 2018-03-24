@@ -18,8 +18,7 @@ void save_dialog_selected(GtkWidget *widget, OpenDialog *sdlog){
 	gint response;
 	GtkTextBuffer *buffer;
 
-	if (strcmp( gtk_window_get_title(GTK_WINDOW(sdlog->window)) , "Untitled") == 0)
-	{
+	if (strcmp( gtk_window_get_title(GTK_WINDOW(sdlog->window)) , "Untitled") == 0){
 		dialog = gtk_file_chooser_dialog_new("Save File", GTK_WINDOW(sdlog->window),
 			GTK_FILE_CHOOSER_ACTION_SAVE,
 			GTK_STOCK_SAVE, GTK_RESPONSE_APPLY,
@@ -28,8 +27,7 @@ void save_dialog_selected(GtkWidget *widget, OpenDialog *sdlog){
 
 		response = gtk_dialog_run(GTK_DIALOG(dialog));
 
-		if (response == GTK_RESPONSE_APPLY)
-		{
+		if (response == GTK_RESPONSE_APPLY){
 			gchar *filename;
 			gchar *contents;
 			GtkTextIter start, end;
@@ -41,15 +39,13 @@ void save_dialog_selected(GtkWidget *widget, OpenDialog *sdlog){
 			gtk_window_set_title(GTK_WINDOW(sdlog->window), filename);
 			sdlog->filename = filename;
 		}
-		else if (response == GTK_RESPONSE_CANCEL)
-		{
+		else if (response == GTK_RESPONSE_CANCEL){
 			gtk_widget_destroy(dialog);
 			return;
 		}
 		gtk_widget_destroy(dialog);
 	}
-	else
-	{
+	else{
 		GtkTextIter start, end;
 		const gchar *filename = gtk_window_get_title(GTK_WINDOW(sdlog->window)); 
 		gchar *contents;
@@ -74,8 +70,7 @@ void open_dialog_selected(GtkWidget *widget, OpenDialog *odlog){
 		GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
 		NULL);
 
-		if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT)
-		{
+		if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT){
 			gchar *filename;
 			gchar *contents;
 			filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialog));
