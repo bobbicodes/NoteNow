@@ -7,6 +7,7 @@ Literally all it has is file menu shit and clipboard operations. NOTENOW!
 
 # Install dependencies
     sudo apt-get install build-essential libgtk2.0-dev
+Read [this](https://developer.gnome.org/gtk3/stable/gtk-compiling.html) for more info.
 
 # Compile
     gcc -o notenow notenow.c `pkg-config --libs --cflags gtk+-2.0`
